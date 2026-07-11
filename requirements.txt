@@ -1,0 +1,50 @@
+# PDF Processing
+# PyMuPDF (fitz) - Fast and efficient PDF text extraction
+PyMuPDF==1.23.8
+pdfplumber==0.11.4
+
+# OCR for scanned PDFs
+pytesseract==0.3.10
+Pillow==10.0.0
+
+# Text Processing and NLP
+nltk==3.8.1
+spacy==3.6.0
+
+# Embeddings and Dense Vectors
+sentence-transformers==2.2.2
+
+# Topic Modeling
+bertopic==0.15.0
+
+# Data Processing
+pandas==2.0.3
+numpy==1.24.3
+
+# Machine Learning & Clustering
+scikit-learn==1.3.0
+umap-learn==0.5.3
+
+# Visualization
+matplotlib==3.7.2
+seaborn==0.12.2
+plotly==5.15.0
+
+# Phase 2 backend AI modules
+faiss-cpu==1.8.0
+transformers==4.41.2
+reportlab==4.2.0
+
+# Web Framework (not used in Phase 2; kept for compatibility)
+flask==2.3.3
+
+# Phase 3 dependencies
+streamlit==1.35.0
+SQLAlchemy==2.0.30
+PyMySQL==1.1.0
+bcrypt==4.1.3
+python-dotenv==1.0.1
+altair==5.3.0
+
+# Utilities
+tqdm==4.66.1

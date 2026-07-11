@@ -1,0 +1,8 @@
+{
+  "enable_tts": true,
+  "voice_model": "piper/models/en_US-lessac-medium.onnx",
+  "speaking_rate": 1.0,
+  "output_directory": "generated_audio",
+  "auto_play": false,
+  "read_sources": false
+}

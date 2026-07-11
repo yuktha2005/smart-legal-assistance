@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: sla_web
+    ports:
+      - "8501:8501"
+    volumes:
+      - .:/app
+      - pdf_data:/app/legal_pdfs
+      - processed_data:/app/processed_data
+    environment:
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_USER=root
+      - DB_PASSWORD=root_password
+      - DB_NAME=smart_legal_assistance
+      - SECRET_KEY=super_secret_key_change_in_prod
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - sla_network
+
+  db:
+    image: mysql:8.0
+    container_name: sla_mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root_password
+      - MYSQL_DATABASE=smart_legal_assistance
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - sla_network
+
+volumes:
+  db_data:
+  pdf_data:
+  processed_data:
+
+networks:
+  sla_network:
+    driver: bridge
